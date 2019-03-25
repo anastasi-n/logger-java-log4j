@@ -101,7 +101,8 @@ public class ReportPortalLog4j2Appender extends AbstractAppender {
                 String message = "";
 
                 try {
-                    if ((eventMessage instanceof ObjectMessage) && (eventMessage.getParameters().length > 0)) {
+                    Object[] parameters = eventMessage.getParameters();
+                    if (null != parameters && parameters.length > 0) {
 
                         Object objectMessage = eventMessage.getParameters()[0];
 
